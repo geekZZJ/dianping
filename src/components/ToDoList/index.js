@@ -3,11 +3,11 @@ import ToDo from "../ToDo";
 
 export default class ToDoList extends Component {
   render() {
-    const { todoList } = this.props;
+    const { todoList, toggleTodo } = this.props;
     return (
       <div>
         {todoList.map((item) => (
-          <ToDo key={item.id} {...item} />
+          <ToDo key={item.id} {...item} toggleTodo={toggleTodo} />
         ))}
       </div>
     );
