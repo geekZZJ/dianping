@@ -4,25 +4,6 @@ import ToDoList from "./components/ToDoList";
 import Footer from "./components/Footer";
 import React, { Component } from "react";
 
-// const todoList = [
-//   {
-//     id: 1,
-//     title: "测试1",
-//     completed: false,
-//   },
-//   {
-//     id: 2,
-//     title: "测试2",
-//     completed: true,
-//   },
-//   {
-//     id: 3,
-//     title: "测试3",
-//     completed: false,
-//   },
-// ];
-// const filter = "all";
-
 export default class App extends Component {
   constructor(props) {
     super(props);
