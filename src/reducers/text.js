@@ -1,12 +1,12 @@
-import { SET_TODO_TITLE } from "../actions/actionTypes";
+import { createSlice } from '@reduxjs/toolkit';
 
-const text = (state = "", action) => {
-  switch (action.type) {
-    case SET_TODO_TITLE:
-      return action.title;
-    default:
-      return state;
+const textSlice = createSlice({
+  name: 'text',
+  initialState: '',
+  reducers: {
+    setTodoTitle: (state, action) => action.payload
   }
-};
+});
 
-export default text;
+export const { setTodoTitle } = textSlice.actions;
+export default textSlice.reducer;

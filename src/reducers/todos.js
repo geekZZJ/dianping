@@ -1,23 +1,24 @@
-import { ADD_TODO, TOGGLE_TODO } from "../actions/actionTypes";
+import { createSlice } from '@reduxjs/toolkit';
 
-const todos = (state = [], action) => {
-  switch (action.type) {
-    case ADD_TODO:
-      return [
-        ...state,
-        {
-          id: action.id,
-          title: action.title,
-          completed: false,
-        },
-      ];
-    case TOGGLE_TODO:
-      return state.map((todo) =>
-        todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
-      );
-    default:
-      return state;
+const todosSlice = createSlice({
+  name: 'todos',
+  initialState: [],
+  reducers: {
+    addTodo: (state, action) => {
+      state.push({
+        id: Date.now(),
+        title: action.payload,
+        completed: false
+      });
+    },
+    toggleTodo: (state, action) => {
+      const todo = state.find(todo => todo.id === action.payload);
+      if (todo) {
+        todo.completed = !todo.completed;
+      }
+    }
   }
-};
+});
 
-export default todos;
+export const { addTodo, toggleTodo } = todosSlice.actions;
+export default todosSlice.reducer;
