@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import ToDo from "../ToDo";
 
 export default class ToDoList extends Component {
+  componentDidMount() {
+    this.props.fetchTodos();
+  }
   render() {
     const { todoList, toggleTodo } = this.props;
     return (

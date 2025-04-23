@@ -8,7 +8,11 @@ const store = configureStore({
     todos: todosReducer,
     filter: filterReducer,
     text: textReducer
-  }
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 export default store;
