@@ -1,20 +1,13 @@
 import React, { Component } from "react";
 
 export default class AddToDo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: "",
-    };
-  }
-
   render() {
     return (
       <div>
         <input
           type="text"
-          value={this.state.title}
-          onChange={(e) => this.setState({ title: e.target.value })}
+          value={this.props.title}
+          onChange={(e) => this.props.setTodoTitle(e.target.value)}
         />
         <button onClick={() => this.handleClick()}>添加</button>
       </div>
@@ -22,7 +15,7 @@ export default class AddToDo extends Component {
   }
 
   handleClick() {
-    this.props.addTodo(this.state.title);
-    this.setState({ title: "" });
+    this.props.addTodo(this.props.title);
+    this.props.setTodoTitle("");
   }
 }
